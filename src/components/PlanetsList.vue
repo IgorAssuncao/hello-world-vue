@@ -5,19 +5,12 @@
         <Planet :planet="planetObj" />
       </li>
     </ul>
-    <button @click="getAllPlanets">Get All Planets</button>
+    <button @click="planets">Get All Planets</button>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
 import Planet from './PlanetComponent.vue';
-
-const url = 'https://swapi.co/api/planets';
-
-async function getAllPlanets() {
-  return axios.get(url);
-}
 
 export default {
   data() {
@@ -25,14 +18,10 @@ export default {
       planets: [],
     };
   },
-  methods: {
-    async getAllPlanets() {
-      const response = await getAllPlanets();
-
-      this.planets = response.data.results;
-
-      return this.planets;
-    },
+  computed: {
+    planets() {
+      return this.$store.getters.filmes;
+    }
   },
   components: {
     Planet,
