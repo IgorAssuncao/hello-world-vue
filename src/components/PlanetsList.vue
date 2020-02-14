@@ -1,11 +1,10 @@
 <template>
   <div class="main-list">
     <ul>
-      <li v-for="planetObj in planets" v-bind:key="planetObj.name">
+      <li v-for="planetObj in planetsComputed()" v-bind:key="planetObj.name">
         <Planet :planet="planetObj" />
       </li>
     </ul>
-    <button @click="planets">Get All Planets</button>
   </div>
 </template>
 
@@ -18,10 +17,13 @@ export default {
       planets: [],
     };
   },
-  computed: {
-    planets() {
-      return this.$store.getters.filmes;
-    }
+  created() {
+    this.$store.dispatch('getPlanets');
+  },
+  methods: {
+    planetsComputed() {
+      return this.$store.getters.planets;
+    },
   },
   components: {
     Planet,
