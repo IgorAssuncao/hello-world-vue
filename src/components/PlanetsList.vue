@@ -12,11 +12,6 @@
 import Planet from './PlanetComponent.vue';
 
 export default {
-  data() {
-    return {
-      planets: [],
-    };
-  },
   created() {
     this.$store.dispatch('getPlanets');
   },
