@@ -15,11 +15,11 @@ import Planet from './PlanetComponent.vue';
 
 export default {
   created() {
-    this.$store.dispatch('getPlanets');
+    // dispatch('getPlanets');
   },
   methods: {
     planetsComputed() {
-      return this.$store.getters.planets;
+      // return getters.planets;
     },
   },
   components: {
