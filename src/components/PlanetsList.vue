@@ -9,6 +9,8 @@
 </template>
 
 <script>
+// import { mapGetters, mapActions } from 'vuex';
+
 import Planet from './PlanetComponent.vue';
 
 export default {
