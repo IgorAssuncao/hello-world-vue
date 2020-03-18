@@ -1,11 +1,11 @@
-import { axios } from 'vue';
+import axios from 'axios';
 
 const getters = {
-  planets: state => state.planets,
+  getPlanets: state => state.planets,
 };
 
 const actions = {
-  async getPlanets({ commit }) {
+  async fetchPlanets({ commit }) {
     const result = await axios.get('https://swapi.co/api/planets');
 
     commit('SAVE_PLANETS', result.data.results);
